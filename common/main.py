@@ -24,13 +24,14 @@ origins = [
     "http://localhost",
     "http://localhost:8080",
     "http://localhost:5173",
+    "*"
     # Agrega aquí otros dominios que necesiten acceder al backend
 ]
 
 # Configuración del middleware de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins="http://localhost:5173",  # Permitir orígenes
+    allow_origins=origins,  # Permitir orígenes
     allow_credentials=True,
     allow_methods=["*"],  # Permitir todos los métodos (GET, POST, etc.)
     allow_headers=["*"],  # Permitir todos los headers
