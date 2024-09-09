@@ -68,3 +68,7 @@ async def chatbot( request: Request):
 
     results = memory_retrieval_conversation(rag_chain=rag_chain, query=body['pregunta'], chat_history=chat_history)
     return results
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Si no encuentra el puerto, usará 5000 por defecto
+    app.run(host="0.0.0.0", port=port)
