@@ -24,7 +24,8 @@ origins = [
     "http://localhost",
     "http://localhost:8080",
     "http://localhost:5173",
-    "*"
+    "https://www.marianodev.site/#/chat-cv",
+    "https://www.marianodev.site"
     # Agrega aquí otros dominios que necesiten acceder al backend
 ]
 
