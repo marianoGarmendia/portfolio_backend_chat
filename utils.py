@@ -12,8 +12,16 @@ import json
 from dotenv import load_dotenv
 
 load_dotenv()
-
+# client = DataAPIClient(os.getenv("ASTRA_DB_APPLICATION_TOKEN"))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Connect to a database by database endpoint
+# Default keyspace, long form
+# database = client.get_database("API_ENDPOINT")
+# Default keyspace, short form
+# database = client["API_ENDPOINT"]
+# Explicit keyspace
+# database = client.get_database(os.getenv("ASTRA_DB_API_ENDPOINT"), keyspace="chat_cv_space")
 
 
 embeddings = OpenAIEmbeddings(
