@@ -88,11 +88,11 @@ def connect_to_astra_vstore(embeddings):
         ASTRA_DB_KEYSPACE = None
     
     vstore_astra = AstraDBVectorStore(
-        embedding=embeddings,
         collection_name="chat_cv_oct",
-        api_endpoint=ASTRA_DB_API_ENDPOINT,
+        embedding=embeddings,
         token=ASTRA_DB_APPLICATION_TOKEN,
-        namespace=ASTRA_DB_KEYSPACE,
+        api_endpoint=ASTRA_DB_API_ENDPOINT,
+        # namespace=ASTRA_DB_KEYSPACE,
     )
 
       
