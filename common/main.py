@@ -40,7 +40,7 @@ app.add_middleware(
 
 # INICIA UN RAG CHAIN
 # rag_chain = get_rag_chain("./vecotr_cv_enlaces" , local=True)
-rag_chain = get_rag_chain_astradb(astraDB=True, embeddings=embeddings)
+rag_chain = get_rag_chain_astradb(astraDB=False, embeddings=embeddings)
 
 vstore_astra = connect_to_astra_vstore(embeddings=embeddings)
 # docs = doc_load("./Mariano_Garmendia_cv_enlaces.pdf")
