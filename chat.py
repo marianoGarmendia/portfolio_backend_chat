@@ -90,7 +90,7 @@ def get_rag_chain(path_vector:str , local):
         question_answer_chain = create_question_answer_chain()
         rag_chain = create_rag_chain(history_aware_retriever, question_answer_chain)
     else:
-        docs = doc_load("./Mariano_Garmendia_cv_enlaces.pdf")
+        docs = doc_load("./Mariano_G_CV_oct_24.pdf")
         docs_splitters = text_splitter(docs)
         vector = create_vector_store(docs_splitters , path_vector)
         retriever = get_vector_store_retriever(path_vector)
@@ -104,7 +104,7 @@ def get_rag_chain(path_vector:str , local):
 
 def get_rag_chain_astradb(astraDB , embeddings):
     if astraDB is False:
-        docs = doc_load("./Mariano_Garmendia_cv_enlaces.pdf")
+        docs = doc_load("./Mariano_G_CV_oct_24.pdf")
         docs_splitters = text_splitter(docs)
         vstore_astra = connect_to_astra_vstore(embeddings=embeddings)
         retriever_astra = add_docs_astra_and_get_retriever(vstore_astra, docs_splitters)
