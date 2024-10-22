@@ -100,7 +100,7 @@ def connect_to_astra_vstore(embeddings):
 
 
 def add_docs_astra_and_get_retriever(vstore_astra , documents):
-    vstore_astra.delete_collection()
+    # vstore_astra.delete_collection()
     vstore_astra.add_documents(documents=documents)
     retriever_astra = vstore_astra.as_retriever(search_kwargs={"k":5})
     return retriever_astra

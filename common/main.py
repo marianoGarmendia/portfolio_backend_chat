@@ -52,7 +52,7 @@ app.add_middleware(
 
 # INICIA UN RAG CHAIN
 # rag_chain = get_rag_chain("./vecotr_cv_enlaces" , local=True)
-rag_chain = get_rag_chain_astradb(astraDB=False, embeddings=embeddings)
+rag_chain = get_rag_chain_astradb(astraDB=True, embeddings=embeddings)
 # //Esta linea que pasa?
 # vstore_astra = connect_to_astra_vstore(embeddings=embeddings)
 # docs = doc_load("./Mariano_Garmendia_cv_enlaces.pdf")
@@ -84,5 +84,5 @@ async def chatbot( request: Request):
     return results
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # Usa el puerto proporcionado por Render
+    port = int(os.environ.get("PORT", 5000))  # Usa el puerto proporcionado por Render
     app.run( host="0.0.0.0", port=port)
