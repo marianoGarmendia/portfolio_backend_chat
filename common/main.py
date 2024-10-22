@@ -84,5 +84,5 @@ async def chatbot( request: Request):
     return results
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # Si no encuentra el puerto, usará 5000 por defecto
-    app.run( host="0.0.0.0", port=port)  # Inicia la aplicación en el puerto especificado
+    port = int(os.environ.get("PORT", 8000))  # Usa el puerto proporcionado por Render
+    app.run( host="0.0.0.0", port=port)
