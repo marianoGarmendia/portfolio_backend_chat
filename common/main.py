@@ -5,8 +5,18 @@ from fastapi import Request
 import sys
 import os
 
-# Añade la ruta del directorio raíz al PYTHONPATH
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# from pydantic import BaseModel
+# from langchain_core.prompts.base import BasePromptTemplate
+
+# class MyModel(BaseModel):
+#     prompt_template: BasePromptTemplate  # Usando el tipo que genera el error
+
+#     class Config:
+#         arbitrary_types_allowed = True  # Permitir tipos arbitrarios
+
+# Ejemplo de uso
+# my_instance = MyModel(prompt_template=BasePromptTemplate(...))  # I
+
 
 from utils import connect_to_astra_vstore, embeddings , doc_load , text_splitter
 from chat import get_rag_chain , memory_retrieval_conversation , chat_history , get_rag_chain_astradb
@@ -17,6 +27,8 @@ app = FastAPI()
 class Pregunta(BaseModel):
     pregunta: str
 
+# Añade la ruta del directorio raíz al PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 # Lista de orígenes permitidos
@@ -73,4 +85,4 @@ async def chatbot( request: Request):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Si no encuentra el puerto, usará 5000 por defecto
-    app.run(host="0.0.0.0", port=port)
+    app.run( host="0.0.0.0", port=port)  # Inicia la aplicación en el puerto especificado
