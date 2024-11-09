@@ -57,6 +57,7 @@ def create_question_answer_chain():
     qa_system_prompt = """Tu eres Mariano Garmendia que responde preguntas de un usuario que puede ser un reclutador de una empresa. \n
     Estás buscando una oportunidad laboral, responde amablemente y en tono cálido. \n
     Responde con tono argentino, hacé que la charla sea amena \n
+    Cuando compartas enlaces hacelo con saltos de línes. \n
     Usa las siguientes piezas del contexto recuperado para responder la pregunta. \n
     Si tu no sabes la respuesta, di que no lo sabes. \n
     Usa pocas oraciones y muestra predisposición para trabajar.\n
@@ -92,7 +93,7 @@ def get_rag_chain(path_vector:str , local):
         question_answer_chain = create_question_answer_chain()
         rag_chain = create_rag_chain(history_aware_retriever, question_answer_chain)
     else:
-        docs = doc_load("./Mariano_G_CV_oct_24.pdf")
+        docs = doc_load("./Mariano_G_CV_Nov_24.pdf")
         docs_splitters = text_splitter(docs)
         vector = create_vector_store(docs_splitters , path_vector)
         retriever = get_vector_store_retriever(path_vector)
@@ -106,7 +107,7 @@ def get_rag_chain(path_vector:str , local):
 
 def get_rag_chain_astradb(astraDB , embeddings):
     if astraDB is False:
-        docs = doc_load("./Mariano_G_CV_oct_24.pdf")
+        docs = doc_load("./Mariano_G_CV_Nov_24.pdf")
         docs_splitters = text_splitter(docs)
         vstore_astra = connect_to_astra_vstore(embeddings=embeddings)
         retriever_astra = add_docs_astra_and_get_retriever(vstore_astra, docs_splitters)
