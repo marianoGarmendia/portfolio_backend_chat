@@ -69,6 +69,7 @@ ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
 
 
 def connect_to_astra_vstore(embeddings):
+    print("Conectando a AstraDB...")
     ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")
     ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -89,7 +90,7 @@ def connect_to_astra_vstore(embeddings):
     
     vstore_astra = AstraDBVectorStore(
         embedding=embeddings,
-        collection_name="chat_cv_feb",
+        collection_name="chat_25_feb",
         api_endpoint=ASTRA_DB_API_ENDPOINT,
         token=ASTRA_DB_APPLICATION_TOKEN,
         namespace=ASTRA_DB_KEYSPACE,
