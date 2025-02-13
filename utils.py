@@ -89,7 +89,7 @@ def connect_to_astra_vstore(embeddings):
     
     vstore_astra = AstraDBVectorStore(
         embedding=embeddings,
-        collection_name="chat_collection_cv_nov",
+        collection_name="chat_cv_feb",
         api_endpoint=ASTRA_DB_API_ENDPOINT,
         token=ASTRA_DB_APPLICATION_TOKEN,
         namespace=ASTRA_DB_KEYSPACE,

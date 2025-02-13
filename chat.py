@@ -107,7 +107,7 @@ def get_rag_chain(path_vector:str , local):
 
 def get_rag_chain_astradb(astraDB , embeddings):
     if astraDB is False:
-        docs = doc_load("./Mariano_G_CV_Nov_24.pdf")
+        docs = doc_load("./cv_mg_actualizado_25.pdf")
         docs_splitters = text_splitter(docs)
         vstore_astra = connect_to_astra_vstore(embeddings=embeddings)
         retriever_astra = add_docs_astra_and_get_retriever(vstore_astra, docs_splitters)

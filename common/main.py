@@ -17,6 +17,7 @@ import os
 # Ejemplo de uso
 # my_instance = MyModel(prompt_template=BasePromptTemplate(...))  # I
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from utils import connect_to_astra_vstore, embeddings , doc_load , text_splitter
 from chat import get_rag_chain , memory_retrieval_conversation , chat_history , get_rag_chain_astradb
@@ -28,7 +29,6 @@ class Pregunta(BaseModel):
     pregunta: str
 
 # Añade la ruta del directorio raíz al PYTHONPATH
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 # Lista de orígenes permitidos
